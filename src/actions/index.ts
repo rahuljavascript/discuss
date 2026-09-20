@@ -7,5 +7,5 @@ export async function signIn() {
 }
 
 export async function signOut() {
-  return auth.signOut;
+  return auth.signOut();
 }
