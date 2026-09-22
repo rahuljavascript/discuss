@@ -13,7 +13,7 @@ const createTopicSchema = z.object({
     .string()
     .min(3)
     .regex(/^[a-z-]+$/, {
-      message: "Must be lowercase or dashes without character",
+      message: "Must be lowercase letters or dashes without spaces",
     }),
   description: z.string().min(10),
 });
@@ -49,7 +49,7 @@ export async function createTopic(
       },
     };
   }
-
+  await new Promise((res)=> setTimeout(res, 2500))
   let topic: Topic;
   try {
     topic = await db.topic.create({
